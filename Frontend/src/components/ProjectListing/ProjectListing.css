@@ -1,0 +1,56 @@
+.content-container {
+    position: relative;
+    z-index: 1;
+}
+
+.listing-box {
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    margin-top: -45px;
+    max-width: 92%;
+    margin-left: 95px;
+}
+
+.search-box {
+    width: 40%;
+}
+
+.sort-box {
+    width: 20%;
+    text-align: right;
+}
+
+.listing-table {
+    margin-top: 20px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+.listing-bg{
+    margin-left: 77px;
+    width: 95%;
+}
+.listing-logo{
+    height: 80px;
+    align-items: center;
+    position: absolute;
+    z-index: +2;
+    width: 100%;
+    margin-top: -140px;
+}
+.start-btn{
+    background-color: rgba(2, 2, 169, 0.825);
+    color: white;
+}
+.bg-image-container h3{
+    margin-left: 120px;
+    position: absolute;
+    color: white;
+    margin-top: 30px;
+}
+.bg-image-container i{
+    margin-right: 20px;
+}

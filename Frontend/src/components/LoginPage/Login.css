@@ -1,0 +1,159 @@
+body{
+  margin: 0%;
+}
+.login-container {
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    background-image: url(/login-bg-1.svg);
+    background-size: 100%;
+    background-repeat: space;
+
+  }
+  .logo {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    width: 100px;
+    margin-top: 80px;
+    height: auto;
+  }
+  
+  .logo-name {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .login-box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .login-box p {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  p {
+    font-size: 22px;
+    margin-bottom: 50px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 25px;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .password-input {
+    position: relative;
+  }
+  
+  .password-input input {
+    padding-right: 40px;
+  }
+  
+  .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: -70px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .forgot-password {
+    text-align: right;
+    margin-bottom: 25px;
+  }
+  
+  .forgot-password a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .forgot-password a:hover {
+    text-decoration: underline;
+  }
+  
+  .login-button {
+    width: 50%;
+    padding: 12px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    margin-bottom: 10px;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .login-box {
+      padding: 20px;
+    }
+  
+    p {
+      font-size: 20px;
+      margin-bottom: 40px;
+    }
+  
+    .login-button {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      width: 100px;
+    }
+  
+    .logo-name {
+      font-size: 20px;
+    }
+  
+    p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+  
+    .forgot-password {
+      margin-bottom: 20px;
+    }
+  }

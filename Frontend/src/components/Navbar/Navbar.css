@@ -1,0 +1,34 @@
+.vertical-navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    width: 60px; /* Adjust width as needed */
+    background-color: #f7f7f7; /* Change background color as needed */
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+  
+  .nav-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  
+  .nav-icon {
+    width: 30px; /* Adjust icon size as needed */
+    height: 30px;
+    margin: 15px 0;
+    cursor: pointer;
+  }
+  
+  .nav-bottom {
+    margin-bottom: 20px; /* Space from bottom */
+  }
+  

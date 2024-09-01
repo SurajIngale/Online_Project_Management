@@ -1,0 +1,117 @@
+
+.insert-project-container {
+    max-width: 950px;
+    margin-left: 80px;
+    padding: 0.1px
+
+}
+.insert-project-container img {
+    position: absolute;
+    width: 94.1%;
+    margin-left: 10px;
+}
+.insert-project-container h4{
+    margin: 0%;
+    margin-left: 80px;
+    position: relative;
+    color: white;
+    margin-top: 40px;
+}
+h4 i{
+    margin-right: 22px;
+}
+.dashboard-logo{
+    height: 60px;
+    margin-top: 20px;
+}
+.button{
+    display: flex;
+}
+.save-button {
+    padding: 10px;
+    width: 17%;
+    border-radius: 10px;
+    background-color: blue;
+    border: blue;
+    color: white;
+    height: 15%;
+    font-size: 14px;
+}
+.form-group {
+    width: 80%;
+    background-color: white;
+    margin-bottom: 15px;
+}
+.form{
+    font-family: "Open Sans", sans-serif"Open Sans", sans-serif;
+    font-weight: small;
+    margin-left: 22px;
+    width: 147%;
+    background-color: white;
+    padding: 30px;
+    position: relative;
+    margin-top: 5%;
+    border-radius: 15px;
+    font-style: normal;
+    font-size: 15px;
+}
+.theme{
+    width: 20%;
+    margin-right: 50px;
+    height: 80px;
+    padding: 30px;
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.status{
+margin: auto;
+margin-right: 20%;
+display: flex;
+gap: 5px;
+}
+.status h4{
+    margin: 0%;
+}
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.status-input {
+    width: 150px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.insert-project-container h6{
+    font-size: 17px;
+}
+
+.error-message {
+    color: red;
+    margin-top: 20px;
+}
+.invalid-input {
+    border: 2px solid red;
+  }
+  

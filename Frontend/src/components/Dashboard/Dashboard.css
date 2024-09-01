@@ -1,0 +1,42 @@
+.dashboard {
+ position: relative;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.2rem;
+}
+
+.card-text {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+@media (max-width: 576px) {
+    .card-text {
+        font-size: 1.5rem;
+    }
+}
+.dash-bg{
+    margin-left: 34px;
+    width: 106%;
+}
+.dash-logo{
+    height: 80px;
+    align-items: center;
+    position: absolute;
+    z-index: +2;
+    width: 100%;
+    margin-top: -140px;
+}
+.counters{
+    margin-left: 60px;
+    position: relative;
+    margin-top: -40px;
+    width: 110%;
+    margin-bottom: 50px;
+}
