@@ -4,7 +4,7 @@ import './Navbar.css';
 
 const Navbar = () => {
   const [activeIcon, setActiveIcon] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const images = {
     dashboard: {
@@ -25,13 +25,13 @@ const Navbar = () => {
     logout: {
       default: '/Logout.svg',
       active: '/Logout-active.svg',
-      path: '/', // Assuming logout redirects to login page
+      path: '/', // Assuming logout redirects to the login page
     },
   };
 
   const handleIconClick = (icon) => {
     setActiveIcon(icon);
-    navigate(images[icon].path); // Navigate to the associated route
+    navigate(images[icon].path);
   };
 
   return (
@@ -60,6 +60,7 @@ const Navbar = () => {
         <img
           src={activeIcon === 'logout' ? images.logout.active : images.logout.default}
           alt="Logout"
+          id='logout'
           className="nav-icon"
           onClick={() => handleIconClick('logout')}
         />

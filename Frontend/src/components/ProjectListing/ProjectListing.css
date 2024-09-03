@@ -1,22 +1,33 @@
-.content-container {
-    position: relative;
-    z-index: 1;
-}
 
 .listing-box {
+    position: relative;
+    z-index: 1;
     background-color: white;
     padding: 20px;
+    padding-bottom: 0%;
     border-radius: 15px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     margin-top: -45px;
     max-width: 92%;
     margin-left: 95px;
+    box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.263);
 }
 
 .search-box {
-    width: 40%;
+    display: flex;
+    gap: 5px;
 }
-
+.search-box input{
+    font-size: 20px;
+    width: 500px;
+    border: none;
+    border-radius: 0%;
+    padding: 5px;
+    border-bottom: 1px solid black;
+}
+.search-box i{
+    position: relative;
+    top: 15px;
+}
 .sort-box {
     width: 20%;
     text-align: right;
@@ -45,6 +56,10 @@
     background-color: rgba(2, 2, 169, 0.825);
     color: white;
 }
+.listing-table button{
+    border-radius: 40px;
+    padding: 5px 20px;
+}
 .bg-image-container h3{
     margin-left: 120px;
     position: absolute;
@@ -53,4 +68,114 @@
 }
 .bg-image-container i{
     margin-right: 20px;
+}
+/* Mobile specific styles */
+.mobile-projects .project-card {
+    margin-top: 10px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 373px;
+    padding: 15px;
+    margin-left: 0%;
+    margin-bottom: 15px;
+    background-color: #fff;
+}
+
+.project-actions {
+    position: relative;
+    z-index: +100;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.project-actions button {
+    position: relative;
+    z-index: +1000;
+    flex: 1 1 auto;
+    margin-bottom: 5px;
+    width: 20px;
+}
+
+@media (max-width: 500px) {
+    .theme-status{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .pagination button {
+        width: 40%;
+        margin-top: 0%;
+        margin-bottom: 80px;
+    }
+    .content-container {
+        position: relative;
+    }
+    
+    .listing-box {
+        position: relative;
+        z-index: -2;
+        border-radius: 0px;
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 0%;
+        position: relative;
+        top: 90px;
+        width: 490px;
+        margin: 0%;
+        box-shadow: none;
+    }
+    .search-box{
+        display: flex;
+        z-index: 10;
+        gap: 10px;
+    }
+    .search-box i {
+        margin: 0%;
+        position: relative;
+        top: 25px;
+        left: 10px;
+    }
+    .search-box  input{
+    padding: 10px;
+    font-size: 20px;
+        border: none;
+        border-bottom: 1px solid black;
+        border-radius: 0%;
+        width: 200px;
+    }
+    .sort-box {
+        width: 40%;
+        text-align: right;
+    }
+    
+    .pagination {
+        margin-top: 0px;
+    }
+    .listing-bg{
+        background-repeat: no-repeat;
+        position: fixed;
+        z-index: +1;
+        margin-left: 0px;
+        width: 200%;
+    }
+    .listing-logo{
+        display: none;
+    }
+    .start-btn{
+        background-color: rgba(2, 2, 169, 0.825);
+        color: white;
+    }
+    .bg-image-container h3{
+        margin-left: 50px;
+        position: fixed;
+        z-index: +2;
+        color: white;
+        margin-top: 30px;
+    }
+    .bg-image-container i{
+       display: none;
+    }
 }

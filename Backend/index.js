@@ -9,7 +9,7 @@ import dashboardRoutes from "./routes/dashboardRoutes.js"
 
 const app = express();
 const PORT = 3000;
-const KEY = "secret_key"; // Make sure to use a secure secret key
+const KEY = "jwtsecretkey"; // Make sure to use a secure secret key
 
 app.use(express.json());
 app.use(cors());

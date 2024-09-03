@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./AddProject.css";
+import { useEffect } from "react";
+import "./mediaQueries.css"
 
 const AddProject = () => {
   const [projectTheme, setProjectTheme] = useState("");
@@ -17,8 +20,18 @@ const AddProject = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [error, setError] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
   const [isProjectThemeInvalid, setIsProjectThemeInvalid] = useState(false);
 
+  useEffect(() => {
+    if (successMessage) {
+      const timer = setTimeout(() => {
+        setSuccessMessage("");
+      }, 1000); // Message disappears after 3 seconds
+      return () => clearTimeout(timer); // Clean up the timer
+    }
+  }, [successMessage]);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -53,6 +66,7 @@ const AddProject = () => {
     }
 
     try {
+      const token = localStorage.getItem("token")
       await axios.post("http://localhost:3000/createProject", {
         projectTheme,
         reason,
@@ -65,6 +79,10 @@ const AddProject = () => {
         status,
         startDate,
         endDate,
+      }, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       });
 
       // Reset form after submission
@@ -79,22 +97,26 @@ const AddProject = () => {
       setStartDate(new Date());
       setEndDate(new Date());
       setError("");
+      setSuccessMessage("Project Saved Successfully");
     } catch (error) {
       setError("Failed to insert project");
+      setSuccessMessage("");
     }
   };
 
   return (
-    <div className="insert-project-container">
+    <div className="insert-project-container ">
       <img src="/Header-bg.svg" alt="" />
       <img className="dashboard-logo" src="/Logo.svg" alt="" />
-      <h4>
+      <h3>
         <i class="fa-solid fa-chevron-left fa-2xs"></i> Create Project
-      </h4>
+      </h3>
       <form className="form" onSubmit={handleSubmit}>
+      {successMessage && <div className="success-message">{successMessage}</div>} 
         <div className="form-group button">
         <input
             type="text"
+            id="project-theme"
             className={`theme ${isProjectThemeInvalid ? "invalid-input" : ""}`}
             value={projectTheme}
             placeholder="Enter Project Theme"

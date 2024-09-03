@@ -107,7 +107,7 @@ body{
     padding: 12px;
     background-color: #007bff;
     border: none;
-    border-radius: 10px;
+    border-radius: 50px;
     color: #fff;
     font-size: 16px;
     cursor: pointer;
@@ -123,31 +123,93 @@ body{
     margin-bottom: 10px;
   }
   
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .login-box {
-      padding: 20px;
-    }
   
-    p {
+  /* Responsive Styles */
+  @media (max-width: 1100px) {
+    .login-container{
+      background-repeat: no-repeat;
+    }
+  }
+
+  @media (max-width: 798px) {
+    .login-container{
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 40vh;
+    }
+    .login-box {
+      position: relative;
+      top: 250px;
+      padding: 20px;
+      box-shadow: none;
+    }
+    .form-group input {
+      width: 100%;
+      width: 330px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+    .logo{
+      position: relative;
+      top: 140px;
+    }
+    .logo-name{
+      position: relative;
+      top: 120px;
+    }
+    .login-box p {
       font-size: 20px;
-      margin-bottom: 40px;
+      margin-top: 0%;
+      margin-bottom: 20px;
     }
   
     .login-button {
+      margin-top: 60px;
+      margin-bottom: 20px;
       font-size: 14px;
+      width: 100%;
     }
   }
   
   @media (max-width: 480px) {
+    .login-container{
+      background-repeat: repeat-x;
+      background-size: cover;
+      position: relative;
+      height: 42vh;
+    }
+    .login-box{
+      right: 10px;
+      z-index: -1;
+      position: relative;
+      top: 270px;
+      margin-left: 0px;
+    }
     .logo {
+      top: 170px;
+      position: relative;
       width: 100px;
     }
-  
+  .form-group input{
+    width: 350px;
+  }
     .logo-name {
+      position: relative;
+      top: 170px;
+      z-index: +1;
       font-size: 20px;
     }
-  
+    .eye-icon {
+      left: 320px;
+    }
+    .login-box p{
+      text-align: left;
+      left: 20px;
+      position: relative;
+      margin-bottom: 50px;
+    }
     p {
       font-size: 18px;
       margin-bottom: 30px;
@@ -155,5 +217,12 @@ body{
   
     .forgot-password {
       margin-bottom: 20px;
+      margin: 0%;
+    }
+    .login-button {
+      margin-left: 10px;
+      font-size: 14px;
+      width: 100%;
+      margin-top: 50px;
     }
   }

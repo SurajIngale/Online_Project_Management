@@ -7,10 +7,11 @@
 }
 .insert-project-container img {
     position: absolute;
-    width: 94.1%;
+    z-index: -1;
+    width: 198.1vh;
     margin-left: 10px;
 }
-.insert-project-container h4{
+.insert-project-container h3{
     margin: 0%;
     margin-left: 80px;
     position: relative;
@@ -30,17 +31,24 @@ h4 i{
 .save-button {
     padding: 10px;
     width: 17%;
-    border-radius: 10px;
+    border-radius: 40px;
     background-color: blue;
     border: blue;
     color: white;
     height: 15%;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    left: 400px;
 }
 .form-group {
     width: 80%;
     background-color: white;
     margin-bottom: 15px;
+}
+.form-group label{
+    font-weight: 400;
+    font-size: 16px;
 }
 .form{
     font-family: "Open Sans", sans-serif"Open Sans", sans-serif;
@@ -54,9 +62,10 @@ h4 i{
     border-radius: 15px;
     font-style: normal;
     font-size: 15px;
+    box-shadow: -10px 10px  20px rgba(90, 90, 90, 0.423);
 }
-.theme{
-    width: 20%;
+#project-theme{
+    width: 714px;
     margin-right: 50px;
     height: 80px;
     padding: 30px;
@@ -76,7 +85,7 @@ gap: 5px;
 }
 .form-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -114,4 +123,23 @@ gap: 5px;
 .invalid-input {
     border: 2px solid red;
   }
+  .success-message {
+    color: green; /* Green color for success message */
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+
+
+
+
+
+
+
+
   

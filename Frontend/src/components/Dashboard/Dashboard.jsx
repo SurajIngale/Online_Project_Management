@@ -28,7 +28,12 @@ const Dashboard = () => {
 
     const fetchCounters = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/dashboard/counters');
+            const token = localStorage.getItem('token');
+            const response = await axios.get('http://localhost:3000/dashboard/counters', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             setCounters(response.data);
             setLoadingCounters(false);
         } catch (error) {
@@ -40,7 +45,12 @@ const Dashboard = () => {
 
     const fetchChartData = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/dashboard/department-stats');
+            const token = localStorage.getItem('token')
+            const response = await axios.get('http://localhost:3000/dashboard/department-stats', {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            });
             // Ensure the data is an array
             if (Array.isArray(response.data)) {
                 setChartData(response.data);
@@ -57,10 +67,6 @@ const Dashboard = () => {
         }
     };
 
-    // Prepare chart options
-    const chartOptions = {
-        // No need for chart options as Recharts handles it declaratively
-    };
 
     return (
         <div className="dashboard container">
@@ -69,10 +75,10 @@ const Dashboard = () => {
                 <img className='dash-bg' src="/Header-bg.svg" alt="" />
                 <img className='dash-logo' src="/Logo.svg" alt="" />
             </div>
-            <div className="counters row">
+            <div className="counters">
                 {/* Total Projects */}
-                <div className="col-md-2 col-sm-6 mb-3">
-                    <div className="card text-black h-100">
+                <div>
+                    <div className="card text-black ">
                         <div className="card-body">
                             <h5 className="card-title">Total Projects</h5>
                             <p className="card-text">{counters.totalProjects}</p>
@@ -80,26 +86,26 @@ const Dashboard = () => {
                     </div>
                 </div>
                 {/* Closed Projects */}
-                <div className="col-md-2 col-sm-6 mb-3">
-                    <div className="card text-black h-100">
+                <div>
+                    <div className="card text-black">
                         <div className="card-body">
-                            <h5 className="card-title">Closed Projects</h5>
+                            <h5 className="card-title">Closed </h5>
                             <p className="card-text">{counters.closedProjects}</p>
                         </div>
                     </div>
                 </div>
                 {/* Running Projects */}
-                <div className="col-md-2 col-sm-6 mb-3">
-                    <div className="card text-black h-100">
+                <div>
+                    <div className="card text-black">
                         <div className="card-body">
-                            <h5 className="card-title">Running Projects</h5>
+                            <h5 className="card-title">Running</h5>
                             <p className="card-text">{counters.runningProjects}</p>
                         </div>
                     </div>
                 </div>
                 {/* Closure Delay */}
-                <div className="col-md-2 col-sm-6 mb-3">
-                    <div className="card text-black h-100">
+                <div>
+                    <div className="card text-black">
                         <div className="card-body">
                             <h5 className="card-title">Closure Delay</h5>
                             <p className="card-text">{counters.closureDelay}</p>
@@ -107,10 +113,10 @@ const Dashboard = () => {
                     </div>
                 </div>
                 {/* Cancelled Projects */}
-                <div className="col-md-2 col-sm-6 mb-3">
-                    <div className="card text-black h-100">
+                <div>
+                    <div className="card text-black">
                         <div className="card-body">
-                            <h5 className="card-title">Cancelled Projects</h5>
+                            <h5 className="card-title">Cancelled</h5>
                             <p className="card-text">{counters.cancelledProjects}</p>
                         </div>
                     </div>
@@ -123,7 +129,10 @@ const Dashboard = () => {
                     ) : errorChart ? (
                         <p className="text-danger">{errorChart}</p>
                     ) : chartData.length > 0 ? (
-                        <ResponsiveContainer width="100%" height={400}>
+                        
+                        <div className='chart'>
+                            <h4 className='dash-h4'>Department wise: Total vs Closed</h4>
+                            <ResponsiveContainer className="chart-box" width="100%" height={400}>
                             <BarChart
                                 data={chartData}
                                 margin={{
@@ -139,6 +148,7 @@ const Dashboard = () => {
                                 <Bar dataKey="closedProjects" name="Closed Projects" fill="#32CD32" />
                             </BarChart>
                         </ResponsiveContainer>
+                        </div>
                     ) : (
                         <p>No chart data available</p>
                     )}
