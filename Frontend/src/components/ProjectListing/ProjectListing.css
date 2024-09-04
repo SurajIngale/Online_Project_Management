@@ -29,10 +29,8 @@
     top: 15px;
 }
 .sort-box {
-    width: 20%;
     text-align: right;
 }
-
 .listing-table {
     margin-top: 20px;
 }
@@ -53,7 +51,7 @@
     margin-top: -140px;
 }
 .start-btn{
-    background-color: rgba(2, 2, 169, 0.825);
+    background-color: rgba(45, 45, 255, 0.91);
     color: white;
 }
 .listing-table button{
@@ -98,6 +96,20 @@
     margin-bottom: 5px;
     width: 20px;
 }
+.type-category{
+    display: flex;
+    gap: 10px;
+}
+.div-dept{
+    display: flex;
+    gap: 10px;
+}
+.project-card span{
+    font-weight: 500;
+}
+.project-card strong{
+    font-weight: 400;
+}
 
 @media (max-width: 500px) {
     .theme-status{
@@ -111,12 +123,12 @@
         margin-bottom: 80px;
     }
     .content-container {
-        position: relative;
+        position: absolute;
     }
     
     .listing-box {
-        position: relative;
-        z-index: -2;
+        position: absolute;
+        z-index: 1;
         border-radius: 0px;
         background-color: white;
         padding: 10px;
@@ -129,8 +141,11 @@
     }
     .search-box{
         display: flex;
-        z-index: 10;
-        gap: 10px;
+        z-index: 1;
+        gap: 12px;
+    }
+    .search-sort{
+        display: flex;
     }
     .search-box i {
         margin: 0%;
@@ -147,17 +162,23 @@
         width: 200px;
     }
     .sort-box {
-        width: 40%;
-        text-align: right;
+        width: 1px;
+        background-repeat: no-repeat;
     }
-    
+    .sort-box select{
+        border: none;
+        width: 50px;
+        position: relative;
+        right: 10px;
+        background-repeat: no-repeat;
+    }
     .pagination {
         margin-top: 0px;
     }
     .listing-bg{
         background-repeat: no-repeat;
         position: fixed;
-        z-index: +1;
+        z-index: +5;
         margin-left: 0px;
         width: 200%;
     }
@@ -165,13 +186,13 @@
         display: none;
     }
     .start-btn{
-        background-color: rgba(2, 2, 169, 0.825);
+        background-color: rgba(45, 45, 255, 0.91);
         color: white;
     }
     .bg-image-container h3{
         margin-left: 50px;
         position: fixed;
-        z-index: +2;
+        z-index: +6;
         color: white;
         margin-top: 30px;
     }

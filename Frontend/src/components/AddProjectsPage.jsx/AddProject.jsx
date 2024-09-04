@@ -3,6 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useMediaQuery } from "react-responsive";
 import "./AddProject.css";
 import { useEffect } from "react";
 import "./mediaQueries.css"
@@ -22,6 +23,8 @@ const AddProject = () => {
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
   const [isProjectThemeInvalid, setIsProjectThemeInvalid] = useState(false);
+
+  const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
   useEffect(() => {
     if (successMessage) {
@@ -265,6 +268,9 @@ const AddProject = () => {
             <h6> {status}</h6>
           </div>
         </div>
+        {isMobile && (<button type="submit" className="btn btn-primary save-button-mobile">
+            Save Project
+          </button>)}
         {error && <div className="error-message">{error}</div>}
       </form>
     </div>
