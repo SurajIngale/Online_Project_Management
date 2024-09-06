@@ -45,7 +45,9 @@
     right: 0;
     position: fixed;
   }
-
+ .line{
+  display: none;
+ }
   .nav-center {
     flex-direction: row;
     justify-content: space-evenly; /* Space icons evenly */

@@ -13,7 +13,7 @@
     margin: 0%;    padding: 0%;
 }
 .insert-project-container h3 {
-    margin: 0;
+    margin-top: 10px;
     z-index: +3;
     color: white;
     position: fixed;
@@ -45,14 +45,12 @@
     font-weight: 500;
     margin-top: 20px;
     position: relative;
-left: 10px;
+left: 20px;
     margin: auto;
     margin-bottom: 60px;
 }
 
-/* Form Group */
 .form-group {
-
     position: relative;
     z-index: +1;
     margin: 0%;
@@ -64,16 +62,17 @@ left: 10px;
 }
 
 .form-group label {
-    font-weight: 300px;
+    font-weight: 400;
     font-size: 17px;
 }
-
-/* Form */
+.date-label{
+    width: 250px;
+}
 .form {
     font-family: "Open Sans", sans-serif;
     margin-left: 0;
     width: 90%;
-    margin-left: 10px;
+    margin-left: 1px;
     position: relative;
     top: 110px;
     padding: 5px;
@@ -87,14 +86,15 @@ left: 10px;
 #project-theme {
     position: relative;
     z-index: +5;
-    width: 320px;
+    width: 342px;
     height: 85px;
     margin-top: 0px;
     position: relative;
-    top: -5px;
-    padding: 15px;
+    top: -10px;
+    padding: 5px;
+    margin: 0%;
     margin-bottom: 0%;
-    border-radius: 0px;
+    border-radius: 3px;
     font-size: 18px;
 }
 
@@ -111,7 +111,15 @@ left: 10px;
     padding: 5px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    font-size: 20px;
+    font-size: 18px;
+}
+.form-control-date{
+    position: relative;
+    z-index: 1;
+}
+.calender-class{
+    position: relative !important;
+    z-index: 100 !important;
 }
 .form-control option{
     width: 120px;
@@ -119,7 +127,6 @@ left: 10px;
     font-size: 14px;
     padding: 0%;
 }
-/* Status Section */
 .status {
     margin-left: 12px;
     margin-bottom: 20px;

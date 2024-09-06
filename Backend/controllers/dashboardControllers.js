@@ -3,7 +3,6 @@ import Projects from '../models/projectModel.js';
 
 export const dashboardCounter = async (req, res) => {
     try {
-        // Aggregation to get total, closed, running, and cancelled projects
         const counters = await Projects.aggregate([
             {
                 $facet: {
@@ -15,7 +14,6 @@ export const dashboardCounter = async (req, res) => {
             }
         ]);
 
-        // Fetch closure delay separately
         const closureDelay = await Projects.countDocuments({
             status: "Running",
             endDate: { $lt: new Date() }

@@ -2,43 +2,59 @@
  position: relative;
 }
 .dash-h3{
-    margin-top: 20px;
+    font-size: 25px;
+    position: relative;
+    left: -70px;
+    top: 15px;
 }
 .card {
-    border-radius: 10px;
-    width: 200px;
-    background-image: linear-gradient(to right, rgb(0, 208, 255) 0.1px, rgba(248, 25, 25, 0) 10%);
+    border-radius: 6px;
+    width: 250px;
+    background-image: linear-gradient(to right, rgb(0, 208, 255) 0.1px, rgba(248, 25, 25, 0) 5%);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.311);
 }
 
 .card-title {
+    margin-left: 20px;
     font-size: 1.2rem;
 }
 
 .card-text {
-    font-size: 2rem;
-    font-weight: bold;
+    margin-left: 20px;
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 .chart-box{
-    margin-top: 30px;
+    margin-top: 20px;
+    position: relative;
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.326);
 }
 .dash-bg{
     margin-left: -30px;
-    width: 197vh;
+    width: 95%;
+    z-index: -2;
+    position: fixed;
+}
+.chart h4{
+    font-size: 19px;
+}
+.dashboard-box{
+    position: relative;
+    top: 70px;
 }
 .dash-logo{
-    height: 80px;
+    height: 65px;
     align-items: center;
-    position: absolute;
-    z-index: +2;
+    position: relative;
+    z-index: 100;
     width: 100%;
-    margin-top: -140px;
+    margin-top: 20px;
 }
 .counters{
     margin-left: 60px;
     position: relative;
-    margin-top: -40px;
+    top: 35px;
+    left: -50px;
     width: 100%;
     margin-bottom: 1px;
     display: flex;
@@ -63,7 +79,7 @@
     .dashboard h3{
         position: relative;
         margin: 0%;
-        top: -5px;
+        top: 5px;
         left: 0%;
         font-size: 1.5rem;
     }
@@ -76,14 +92,18 @@
         top: 120px;
         display: flex;
         flex-wrap: nowrap;
-        height: 150px;
+        height: 100px;
         overflow-x: auto;
         margin: 0%;
-        width: 390px;
+        margin-left: 50px;
+        width: 373px;
       }
       .dash-h4{
         font-size: 1rem;
-        margin-top: 30px;
+        margin-top: -100px;
+    }
+    .dashboard-box{
+        margin-top: 100px;
     }
     .card{
         box-shadow: none;
@@ -101,6 +121,6 @@
     .chart-box{
         margin-top: 30px;
         margin-left: 0%;
-        box-shadow: none
+        box-shadow: none;
     }
 }

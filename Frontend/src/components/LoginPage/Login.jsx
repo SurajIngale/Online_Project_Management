@@ -9,14 +9,24 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    setError("");
+    
+    setEmailError("");
+    setPasswordError("");
+
+    if (!email) {
+      setEmailError("Email is required");
+    }
+    if (!password) {
+      setPasswordError("Password is required");
+    }
 
     if (!email || !password) {
-      setError("Please fill in all fields.");
       return;
     }
 
@@ -25,10 +35,25 @@ const Login = () => {
         email,
         password,
       });
+      
       localStorage.setItem("token", response.data.token);
       navigate("/dashboard");
     } catch (err) {
-      setError("Invalid credentials.");
+      setError(response.error);
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (e.target.value) {
+      setEmailError(""); 
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (e.target.value) {
+      setPasswordError(""); 
     }
   };
 
@@ -36,28 +61,37 @@ const Login = () => {
     <div className="login-container">
       <img className="logo" src="/Logo.svg" alt="Logo" />
       <div className="logo-name">Online Project Management</div>
-      <div className="login-box ">
+      <div className="login-box">
         <p>Login to get Started</p>
         <form onSubmit={handleLogin}>
           <div className="form-group">
-            <label htmlFor="email">Email</label>
+            <label htmlFor="email" className={emailError ? "label-error" : ""}>
+              Email
+            </label>
             <input
               type="email"
               id="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
+              onChange={handleEmailChange}
+              className={emailError ? "input-error" : ""}
             />
+            {emailError && <div className="error-message">{emailError}</div>}
           </div>
+
           <div className="form-group">
-            <label htmlFor="password">Password</label>
+            <label
+              htmlFor="password"
+              className={passwordError ? "label-error" : ""}
+            >
+              Password
+            </label>
             <div className="password-input">
               <input
                 type={showPassword ? "text" : "password"}
                 id="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
+                onChange={handlePasswordChange}
+                className={passwordError ? "input-error" : ""}
               />
               <img
                 src={EyeIcon}
@@ -66,11 +100,17 @@ const Login = () => {
                 className="eye-icon"
               />
             </div>
+            {passwordError && (
+              <div className="error-message">{passwordError}</div>
+            )}
           </div>
+
           <div className="forgot-password">
             <a href="/forgot-password">Forgot Password?</a>
           </div>
+
           {error && <div className="error">{error}</div>}
+
           <button type="submit" className="login-button">
             Login
           </button>

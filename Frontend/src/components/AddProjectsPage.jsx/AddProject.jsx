@@ -34,6 +34,15 @@ const AddProject = () => {
       return () => clearTimeout(timer); // Clean up the timer
     }
   }, [successMessage]);
+
+  const handleEndDateChange = (date) => {
+    setEndDate(date);
+    if (date < startDate) {
+      setError("End date cannot be before the start date");
+    } else {
+      setError("");
+    }
+  };
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +54,11 @@ const AddProject = () => {
       return;
     } else {
       setIsProjectThemeInvalid(false);
+    }
+
+    if (endDate < startDate) {
+      setError("End date cannot be before the start date");
+      return;
     }
 
     if (
@@ -134,27 +148,27 @@ const AddProject = () => {
           <div className="form-group">
             <label>Reason</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={reason}
               onChange={(e) => setReason(e.target.value)}
             >
-              <option value="" disabled hidden>
-                Select Reason
+              <option className="form-select" value="" disabled hidden>
+                For Business
               </option>
               <option value="For Business">For Business</option>
-              <option value="Dealership">Dealership</option>
-              <option value="Transport">Transport</option>
+              <option value="Dealership">For Dealership</option>
+              <option value="Transport"> ForTransport</option>
             </select>
           </div>
           <div className="form-group">
             <label>Type</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={type}
               onChange={(e) => setType(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Type
+              Internal
               </option>
               <option value="Internal">Internal</option>
               <option value="External">External</option>
@@ -165,12 +179,12 @@ const AddProject = () => {
           <div className="form-group">
             <label>Division</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={division}
               onChange={(e) => setDivision(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Division
+              Compressor
               </option>
               <option value="Compressor">Compressor</option>
               <option value="Filters">Filters</option>
@@ -183,12 +197,12 @@ const AddProject = () => {
           <div className="form-group">
             <label>Category</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={category}
               onChange={(e) => setCategory(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Category
+              Quality A
               </option>
               <option value="A">Quality A</option>
               <option value="B">Quality B</option>
@@ -200,12 +214,12 @@ const AddProject = () => {
           <div className="form-group">
             <label>Priority</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={priority}
               onChange={(e) => setPriority(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Priority
+              High
               </option>
               <option value="High">High</option>
               <option value="Medium">Medium</option>
@@ -216,12 +230,12 @@ const AddProject = () => {
           <div className="form-group">
             <label>Department</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={department}
               onChange={(e) => setDepartment(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Department
+              Startery
               </option>
               <option value="Startery">Startery</option>
               <option value="Finance">Finance</option>
@@ -231,35 +245,37 @@ const AddProject = () => {
           </div>
 
           <div className="form-group">
+            <label className="date-label">Start Date as per Project Plan</label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => setStartDate(date)}
+              className="form-control-date"
+              calendarClassName="calender-class"
+            />
+          </div>
+          <div className="form-group">
+            <label className="date-label">End Date as per Project Plan</label>
+            <DatePicker
+              selected={endDate}
+              onChange={handleEndDateChange}
+              className="form-control-date" 
+              calendarClassName="calender-class"
+            />
+          </div>
+          <div className="form-group">
             <label>Location</label>
             <select
-              className="form-control"
+              className="form-control form-select"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
             >
               <option value="" disabled hidden>
-                Select Location
+              Pune
               </option>
               <option value="Pune">Pune</option>
               <option value="Delhi">Delhi</option>
               <option value="Mumbai">Mumbai</option>
             </select>
-          </div>
-          <div className="form-group">
-            <label>Start Date</label>
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">
-            <label>End Date</label>
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => setEndDate(date)}
-              className="form-control"
-            />
           </div>
         </div>
         <div className="form-actions">

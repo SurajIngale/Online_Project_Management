@@ -3,7 +3,8 @@ import axios from "axios";
 import { useMediaQuery } from "react-responsive";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./ProjectListing.css";
-import sortIcon from "/bars-sort.png"
+import sortIcon from "/bars-sort.png";
+import { useNavigate } from "react-router-dom";
 
 const ProjectListing = () => {
   const [projects, setProjects] = useState([]);
@@ -11,11 +12,8 @@ const ProjectListing = () => {
   const [sortColumn, setSortColumn] = useState("priority");
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 10;
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
 
-  const toggleDropdown = () => {
-    setIsDropdownVisible(!isDropdownVisible);
-  };
+  const navigate = useNavigate();
 
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
@@ -32,6 +30,8 @@ const ProjectListing = () => {
           Authorization: `Bearer ${token}`,
         },
       });
+      console.log(response.data);
+      
       setProjects(response.data);
     } catch (error) {
       console.error("Failed to fetch projects", error);
@@ -79,13 +79,23 @@ const ProjectListing = () => {
     indexOfLastProject
   );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
+
+  const paginate = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
+
+  const backClick = () => {
+    navigate("/dashboard")
+  }
 
   return (
     <div className="project-listing">
       <div className="bg-image-container">
         <h3>
-          <i className="fa-solid fa-chevron-left fa-2xs"></i> Project Listing
+          <i onClick={backClick} className="fa-solid fa-chevron-left fa-2xs"></i> Project Listing
         </h3>
         <img className="listing-bg" src="/Header-bg.svg" alt="" />
         <img className="listing-logo" src="/Logo.svg" alt="" />
@@ -104,31 +114,41 @@ const ProjectListing = () => {
               />
             </div>
             <div>
-      {isMobile ? (
-        <div className="sort-box">
-          <select 
-            className="sort-select"
-            onChange={e => setSortColumn(e.target.value)}
-            style={{ backgroundImage: `url(${sortIcon})`, backgroundRepeat: 'no-repeat' }}
-          >
-            <option value="" disabled selected hidden></option>
-            <option value="priority">Priority</option>
-            <option value="projectName">Project Name</option>
-            <option value="status">Status</option>
-            <option value="type">Type</option>
-          </select>
-        </div>
-      ) : (
-        <div className="sort-box">
-          <select className="form-select" onChange={e => setSortColumn(e.target.value)}>
-            <option value="priority">Priority</option>
-            <option value="projectName">Project Name</option>
-            <option value="status">Status</option>
-            <option value="type">Type</option>
-          </select>
-        </div>
-      )}
-    </div>
+              {isMobile ? (
+                <div className="sort-box">
+                  <select
+                    className="sort-select"
+                    onChange={(e) => setSortColumn(e.target.value)}
+                    style={{
+                      backgroundImage: `url(${sortIcon})`,
+                      backgroundRepeat: "no-repeat",
+                    }}
+                  >
+                    <option value="" disabled selected hidden></option>
+                    <option value="priority">Priority</option>
+                    <option value="projectName">Project Name</option>
+                    <option value="status">Status</option>
+                    <option value="type">Type</option>
+                  </select>
+                </div>
+              ) : (
+                <div className="sort-box">
+                  <div>Sort By :</div>
+                  <select
+                    className="form-select"
+                    onChange={(e) => setSortColumn(e.target.value)}
+                  >
+                    <option value="" disabled hidden>
+                      Priority
+                    </option>
+                    <option value="priority">Priority</option>
+                    <option value="projectName">Project Name</option>
+                    <option value="status">Status</option>
+                    <option value="type">Type</option>
+                  </select>
+                </div>
+              )}
+            </div>
           </div>
 
           {isMobile ? (
@@ -225,7 +245,7 @@ const ProjectListing = () => {
                     <td>{project.reason}</td>
                     <td>{project.type}</td>
                     <td>{project.division}</td>
-                    <td>{project.category}</td>
+                    <td>Quality {project.category}</td>
                     <td>{project.priority}</td>
                     <td>{project.department}</td>
                     <td>{project.location}</td>
@@ -256,20 +276,37 @@ const ProjectListing = () => {
             </table>
           )}
 
-          <div className="pagination d-flex justify-content-center mt-3">
-            {[
-              ...Array(
-                Math.ceil(filteredProjects.length / projectsPerPage)
-              ).keys(),
-            ].map((number) => (
+<div className="pagination d-flex justify-content-center mt-3">
+            {/* Backward Button */}
+            <button
+              className="me-2"
+              onClick={() => paginate(currentPage - 1)}
+              disabled={currentPage === 1}
+            >
+             <i class="fa-solid fa-chevron-left"></i>
+            </button>
+
+            {/* Pagination Numbers */}
+            {Array.from({ length: totalPages }, (_, index) => (
               <button
-                key={number + 1}
-                className="btn btn-primary me-2"
-                onClick={() => paginate(number + 1)}
+                key={index + 1}
+                className={`btn me-2 ${
+                  currentPage === index + 1 ? "btn-circle" : ""
+                }`}
+                onClick={() => paginate(index + 1)}
               >
-                {number + 1}
+                {index + 1}
               </button>
             ))}
+
+            {/* Forward Button */}
+            <button
+              className=""
+              onClick={() => paginate(currentPage + 1)}
+              disabled={currentPage === totalPages}
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
           </div>
         </div>
       </div>

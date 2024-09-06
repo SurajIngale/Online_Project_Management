@@ -18,14 +18,14 @@ body{
   .logo {
     margin-top: 20px;
     margin-bottom: 15px;
-    width: 100px;
-    margin-top: 80px;
+    width: 90px;
+    margin-top: 100px;
     height: auto;
   }
   
   .logo-name {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 40px;
   }
   
@@ -122,6 +122,20 @@ body{
     color: red;
     margin-bottom: 10px;
   }
+  .input-error {
+    border: 1px solid red !important;
+    outline: none;
+  }
+  
+  .label-error {
+    color: red !important;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
   
   
   /* Responsive Styles */
@@ -178,17 +192,17 @@ body{
       background-repeat: repeat-x;
       background-size: cover;
       position: relative;
-      height: 42vh;
+      height: 41vh;
     }
     .login-box{
       right: 10px;
       z-index: -1;
       position: relative;
-      top: 270px;
+      top: 230px;
       margin-left: 0px;
     }
     .logo {
-      top: 170px;
+      top: 150px;
       position: relative;
       width: 100px;
     }
@@ -197,7 +211,7 @@ body{
   }
     .logo-name {
       position: relative;
-      top: 170px;
+      top: 160px;
       z-index: +1;
       font-size: 20px;
     }
@@ -208,7 +222,7 @@ body{
       text-align: left;
       left: 20px;
       position: relative;
-      margin-bottom: 50px;
+      margin-bottom: 30px;
     }
     p {
       font-size: 18px;
@@ -216,13 +230,13 @@ body{
     }
   
     .forgot-password {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       margin: 0%;
     }
     .login-button {
       margin-left: 10px;
       font-size: 14px;
       width: 100%;
-      margin-top: 50px;
+      margin-top: 40px;
     }
   }

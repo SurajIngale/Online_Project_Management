@@ -71,7 +71,7 @@ const Dashboard = () => {
     return (
         <div className="dashboard container">
            <div className='bg-image-container'>
-                <h3> Dashboard</h3>
+                <h3 className='dash-h3'> Dashboard</h3>
                 <img className='dash-bg' src="/Header-bg.svg" alt="" />
                 <img className='dash-logo' src="/Logo.svg" alt="" />
             </div>
@@ -123,7 +123,7 @@ const Dashboard = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-12">
+                <div className=" dashboard-box col-12">
                     {loadingChart ? (
                         <p>Loading chart...</p>
                     ) : errorChart ? (

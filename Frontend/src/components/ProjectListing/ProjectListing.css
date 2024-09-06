@@ -1,12 +1,12 @@
 
 .listing-box {
     position: relative;
+    top: 110px;
     z-index: 1;
     background-color: white;
     padding: 20px;
     padding-bottom: 0%;
     border-radius: 15px;
-    margin-top: -45px;
     max-width: 92%;
     margin-left: 95px;
     box-shadow: -10px 10px 20px rgba(0, 0, 0, 0.263);
@@ -22,52 +22,79 @@
     border: none;
     border-radius: 0%;
     padding: 5px;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid gray;
 }
 .search-box i{
     position: relative;
     top: 15px;
+    z-index: +10;
+}
+.sort-box  div{
+    padding: 5px;
+    width: 120px;
+    color: gray;
+    font-weight: 350;
 }
 .sort-box {
-    text-align: right;
+    flex-direction: row;
+    display: flex;
+    width: 210px;
+}
+.sort-box select{
+    border: none;
+    padding: 5px;
 }
 .listing-table {
+    font-size: 15px;
     margin-top: 20px;
 }
 
 .pagination {
     margin-top: 20px;
 }
+.pagination button{
+    border: none;
+}
 .listing-bg{
+    position: fixed;
+    z-index: -2;
     margin-left: 77px;
     width: 95%;
 }
 .listing-logo{
-    height: 80px;
+    height: 65px;
     align-items: center;
     position: absolute;
     z-index: +2;
     width: 100%;
-    margin-top: -140px;
+    margin-top: 20px;
 }
 .start-btn{
-    background-color: rgba(45, 45, 255, 0.91);
+    background-color: rgba(45, 45, 255, 0.821);
     color: white;
 }
 .listing-table button{
+    border: 1px solid rgba(45, 45, 255, 0.91);
     border-radius: 40px;
-    padding: 5px 20px;
+    padding: 3px 20px;
 }
 .bg-image-container h3{
     margin-left: 120px;
     position: absolute;
     color: white;
-    margin-top: 30px;
+    margin-top: 40px;
+    font-size: 25px;
 }
 .bg-image-container i{
     margin-right: 20px;
 }
-/* Mobile specific styles */
+.btn-circle {
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+  }
+  
+
 .mobile-projects .project-card {
     margin-top: 10px;
     position: relative;
@@ -75,7 +102,7 @@
     border: 1px solid #ddd;
     border-radius: 8px;
     width: 373px;
-    padding: 15px;
+    padding: 10px;
     margin-left: 0%;
     margin-bottom: 15px;
     background-color: #fff;

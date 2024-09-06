@@ -49,6 +49,7 @@ const Navbar = () => {
           className="nav-icon"
           onClick={() => handleIconClick('projectList')}
         />
+        <div className='line'>——</div>
         <img
           src={activeIcon === 'createProject' ? images.createProject.active : images.createProject.default}
           alt="Create Project"
@@ -56,6 +57,7 @@ const Navbar = () => {
           onClick={() => handleIconClick('createProject')}
         />
       </div>
+      
       <div className="nav-bottom">
         <img
           src={activeIcon === 'logout' ? images.logout.active : images.logout.default}

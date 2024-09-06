@@ -6,11 +6,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import AddProject from "./components/AddProjectsPage.jsx/AddProject";
 import Layout from "./Layout";
 import ProjectListing from "./components/ProjectListing/ProjectListing";
-import { useMediaQuery } from 'react-responsive';
 
 function App() {
-
-    const isMobile = useMediaQuery({ query: '(max-width: 767px)' });
     
     return (
         <Router>
